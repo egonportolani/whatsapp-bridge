@@ -8,12 +8,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 3000;
 const WORKER_URL = process.env.WORKER_URL || 'https://openclaw-cloud.openclaw-egon.workers.dev';
 
-// Initialize WhatsApp client with Render-compatible Puppeteer config
+// Initialize WhatsApp client with bundled Chromium
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
         headless: true,
-        executablePath: process.env.CHROME_PATH || '/usr/bin/chromium',
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
@@ -22,9 +21,7 @@ const client = new Client({
             '--no-first-run',
             '--no-zygote',
             '--single-process',
-            '--disable-gpu',
-            '--disable-software-rasterizer',
-            '--disable-dev-shm-usage'
+            '--disable-gpu'
         ]
     }
 });
