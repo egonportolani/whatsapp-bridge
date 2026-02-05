@@ -1,11 +1,6 @@
 [build]
-builder = "NIXPACKS"
-
-[build.nixpacksPlan]
-providers = ["node"]
-
-[build.nixPkgs]
-pkgs = ["nodejs_18", "glib", "nss", "nspr", "atk", "cups", "dbus", "libdrm", "gtk3", "pango", "cairo", "alsa-lib", "expat", "libxcb", "libxkbcommon", "libx11", "libxcomposite", "libxdamage", "libxext", "libxfixes", "libxrandr", "mesa", "gcc", "glibc"]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
 
 [deploy]
 startCommand = "npm start"
